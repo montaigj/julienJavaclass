@@ -1,0 +1,41 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+public class Canard {
+   private String couleur;
+   private int taille;
+
+   public Canard(String var1, int var2) {
+      this.couleur = var1;
+      this.taille = var2;
+   }
+
+   public String getCouleur() {
+      return this.couleur;
+   }
+
+   public void setCouleur(String var1) {
+      this.couleur = var1;
+   }
+
+   public int getTaille() {
+      return this.taille;
+   }
+
+   public void setTaille(int var1) {
+      this.taille = var1;
+   }
+
+   public void cancaner() {
+      System.out.println("Coin coin !");
+   }
+
+   public void grandir() {
+      ++this.taille;
+   }
+
+   public static void main(String[] var0) {
+      Canard var1 = new Canard("jaune", 10);
+      System.out.println("Taille au debut : " + var1.getTaille() + " cm");
+      var1.grandir();
+      System.out.println("Taille apres croissance : " + var1.getTaille() + " cm");
+   }
+}

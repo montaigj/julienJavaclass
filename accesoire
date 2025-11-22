@@ -1,0 +1,35 @@
+class Accessoire {
+    String nom;
+    String couleur;
+
+    // Constructeur
+    public Accessoire(String nom, String couleur) {
+        this.nom = nom;
+        this.couleur = couleur;
+    }
+
+    // toString propre
+    public String toString() {
+        return nom + " " + couleur;
+    }
+}
+
+// La classe Canard doit inclure l'accessoire
+class Canard {
+    String couleur;
+    int taille;
+    Accessoire accessoire; // L'attribut demandé
+
+    public Canard(String couleur, int taille) {
+        this.couleur = couleur;
+        this.taille = taille;
+    }
+
+    public void afficherDescription() {
+        System.out.print("Canard " + couleur + " (" + taille + " cm)");
+        if (accessoire != null) {
+            System.out.print(" avec un " + accessoire.toString());
+        }
+        System.out.println(".");
+    }
+}

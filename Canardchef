@@ -1,0 +1,45 @@
+// --- 1. Classe Mère : Canard ---
+class Canard {
+    protected String couleur; // 'protected' pour un accès plus simple dans les enfants si besoin
+    protected int taille;
+    static int compteurCanards = 0; // Compteur statique pour tous les canards
+    public Canard(String couleur, int taille) {
+        this.couleur = couleur;
+        this.taille = taille;
+    }
+
+    // Méthode de base
+    public void afficherDescription() {
+        System.out.print("Je suis un canard " + couleur + " de " + taille + " cm");
+    }
+}
+
+// --- 2. Classe Fille : CanardChef (Celle qui gère les subalternes) ---
+class CanardChef extends Canard {
+    // C'est ICI que se trouve l'info "utile pour les subalternes"
+    private int nombreSubalternes; 
+
+    public CanardChef(String couleur, int taille, int nombreSubalternes, int commpteurCanards) {
+        super(couleur, taille); // On initialise la partie "Canard"
+        this.nombreSubalternes = nombreSubalternes; // On initialise la partie "Chef"
+        Canard.compteurCanards = commpteurCanards; // On initialise le compteur statique
+    }
+
+    @Override
+    public void afficherDescription() {
+        super.afficherDescription(); // Affiche "Je suis un canard..."
+        // Affiche l'info spécifique aux subalternes
+        System.out.println(" et je commande " + nombreSubalternes + " subalternes !");
+        System.out.println("Nombre total de canards dans le groupe : " + Canard.compteurCanards);
+    }
+}
+
+// --- 3. Main ---
+public class Main {
+    public static void main(String[] args) {
+        // On se concentre uniquement sur le Chef et ses subalternes
+        CanardChef chef = new CanardChef("bleu", 20, 150);
+        CanardChef chef = new CanardChef("bleu", 20, 150, 300);
+        chef.afficherDescription();
+    }
+}
